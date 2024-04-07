@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int kth_Smallestelement(int arr[100][100], int n, int m, int k) {
+    int index=0;
+    int temp[n * m];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            temp[index++] = arr[i][j];
+        }
+    }
+    
+for (int i = 0; i < n * m - 1; i++) {
+        for (int j = 0; j < n * m - i - 1; j++) {
+            if (temp[j] > temp[j + 1]) {
+                int val = temp[j];
+                temp[j] = temp[j + 1];
+                temp[j + 1] = val;
+             }
+        }
+    }
+    return temp[k-1];
+}
+int main() {
+    int n, m, k;
+    printf("Enter the no. of rows and columns of the 2D array: ");
+    scanf("%d %d", &n, &m);
+    int arr[n][100];
+    printf("Enter the elements of the 2D array:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    printf("Enter the value of k: ");
+    scanf("%d", &k);
+    int kth_smallest = kth_Smallestelement(arr, n, m, k);
+    printf("The kth smallest element in the 2D array is: %d\n", kth_smallest);
+    return 0;
+}
