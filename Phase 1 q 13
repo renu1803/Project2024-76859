@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int add(int arr[100][100], int m, int n, int arr_2[100][100]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+           int a = arr[i][j];
+           int b = arr_2[i][j];
+            int sum = a + b;
+            printf("%d ", sum);
+        }
+        printf("\n");
+    }   
+    return 0;
+}
+
+int sub(int arr[100][100], int m, int n, int arr_2[100][100]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+           int a = arr[i][j];
+           int b = arr_2[i][j];
+            int subtraction = a - b;
+            printf("%d ", subtraction);
+        }
+        printf("\n");
+    }   
+    return 0;
+}
+
+int main() {
+    int m, n, p, q;
+    int arr[100][100];
+    int arr_2[100][100];
+
+    printf("Enter the number of rows and columns of first matrix: ");
+    scanf("%d%d", &m, &n);
+
+    printf("Enter the elements of 1st matrix:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    printf("Enter the number of rows and columns of second matrix: ");
+    scanf("%d%d", &p, &q);
+
+    printf("Enter the elements of 2nd matrix:\n");
+    for (int i = 0; i < p; i++) {
+        for (int j = 0; j < q; j++) {
+            scanf("%d", &arr_2[i][j]);
+        }
+    }
+    
+    if (m == p && n == q) {
+        printf("\nAddition of matrices are :\n");
+        add(arr, m, n, arr_2);
+        printf("\nSubtraction of matrices are :\n");
+        sub(arr, m, n, arr_2);
+    } else {
+        printf("Number of rows and columns of both matrices are not equal.\n");    
+        printf("Hence, Addition and Subtraction is not possible.\n");
+    }
+    return 0;
+}
