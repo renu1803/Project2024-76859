@@ -1,0 +1,47 @@
+// RA75859GS041304
+#include <stdio.h>
+#include <stdlib.h> 
+
+void transpose(int arr[][3], int m, int n) {
+    int **arr_trans;
+    arr_trans = (int **)malloc(n * sizeof(int *));
+    for (int i = 0; i < n; i++) {
+        arr_trans[i] = (int *)malloc(m * sizeof(int));
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            arr_trans[i][j] = arr[j][i];
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%d ", arr_trans[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < n; i++) {
+        free(arr_trans[i]);
+    }
+    free(arr_trans);
+}
+
+int main() {
+    int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
+
+    printf("Original matrix is :\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("Transpose of matrix is :\n");
+    transpose(arr, 2, 3);
+
+    return 0;
+}
+  
