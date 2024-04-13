@@ -1,0 +1,26 @@
+// RA76859GS041314
+#include <stdio.h>
+
+int power(int n, int m) {
+    int result = 1; 
+    for (int i = 0; i < m; i++) { 
+        result *= n;
+    }
+    printf("%d", result);
+    return 0;
+}
+
+int main() {
+    int n;
+    int m;
+
+    printf("Enter the number: ");
+    scanf("%d", &n);
+
+    printf("Enter the power : ");
+    scanf("%d", &m);
+
+    power(n, m);
+
+    return 0;
+}
