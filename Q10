@@ -1,0 +1,24 @@
+// RA76859GS041310
+# include<stdio.h>
+#include<string.h>
+
+int counter(char string [], char c) {
+int count=0;
+    for(int i=0;i<sizeof(string) ;i++) {
+        if(c==string[i]) {
+            count+=1;}}
+return counter; }
+int main(){
+
+char string [100];
+char c;
+
+printf("Enter the string:");
+for(int i=0;i<sizeof(string);i++) {
+    scanf("%s",&string[i]);}
+printf("Enter a character to check for occurrence: ");
+scanf("%c",&c);
+int m=sizeof(string) ;
+counter(string,c) ;
+
+return 0;}
